@@ -101,11 +101,13 @@
 
     async function main() {
       await liff.init({ liffId: "1660829595-DGjW4RBz" })
-      getEnvironment()
-      getUserProfile()
-      getContext()
-      // getFriendship()
-      // createUniversalLink()
+      liff.ready.then(() => {
+        getEnvironment()
+        getUserProfile()
+        getContext()
+        // getFriendship()
+        // createUniversalLink()
+      })
     }
     main()
   </script>
