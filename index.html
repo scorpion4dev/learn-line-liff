@@ -57,7 +57,12 @@
     }
 
     async function scanCode() {
-      const result = await liff.scanCode()
+      let result = {}
+      if (liff.getOS() === 'ios') {
+        result = await liff.scanCodeV2()
+      } else {
+        result = await liff.scanCode()
+      }
       document.getElementById("scanCode").append(result.value)
     }
 
