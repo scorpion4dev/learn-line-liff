@@ -75,11 +75,23 @@
     }
 
     function getEnvironment() {
+      document.getElementById("os").append(liff.getOs())
+      document.getElementById("language").append(liff.getLanguage())
+      document.getElementById("version").append(liff.getVersion())
+      document.getElementById("accessToken").append(liff.getAccessToken())
+      document.getElementById("isInClient").append(liff.getIsInClient())
+      if (liff.isInClient()) {
+        document.getElementById("bthLogOut").style.display = "none"
+      } else {
+        document.getElementById("bthMsg").style.display = "none"
+        document.getElementById("bthScanCode").style.display = "none"
+        document.getElementById("bthClose").style.display = "none"
+      }
     }
 
     async function main() {
       await liff.init({ liffId: "1660829595-DGjW4RBz" })
-      // getEnvironment()
+      getEnvironment()
       // getUserProfile()
       // getContext()
       // getFriendship()
